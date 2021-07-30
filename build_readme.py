@@ -8,9 +8,19 @@ def load_bg_image(image_name):
 
 def output_final_image(output_image_name, bg_image):
 	draw = ImageDraw.Draw(bg_image)
+	bg_width, bg_height = bg_image.size
+
 	font = ImageFont.truetype("Roboto-Light.ttf", 16)
-	draw.rectangle((530, 80, 640, 130), outline = None, fill = 'black')
-	draw.text((550, 95), date.today().strftime("%A"), (255, 255, 255), font = font)
+	text = date.today().strftime("%A")
+	width, height = font.getsize(text)
+
+	x = (bg_width - width) / 2
+	y = (bg_height - height) / 2
+	padding = 10
+
+	draw.rectangle((x - padding, y - padding, x + width + padding, y + height + padding), outline = None, fill = 'black')
+	draw.text((x, y), text, (255, 255, 255), font = font)
+
 	bg_image.save(output_image_name)
 
 if __name__ == "__main__":
