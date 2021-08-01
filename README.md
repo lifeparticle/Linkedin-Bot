@@ -1,4 +1,5 @@
 1. Get python
+
 https://github.com/pyenv/pyenv
 ```
 brew install pyenv
@@ -6,12 +7,7 @@ pyenv install 3.9.6
 pyenv versions
 ```
 
-~/.bashrc
-```
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-```
-~/.profile
+~/.zprofile
 ```
 eval "$(pyenv init --path)"
 ```
